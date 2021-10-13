@@ -1,0 +1,29 @@
+- name: Godot Export
+  # You may pin to the exact commit or the version.
+  # uses: firebelley/godot-export@1e28506c4afa5c7c33c7da60f87b71ccacf4a405
+  uses: firebelley/godot-export@v3.0.0
+  with:
+    # The download url of the 64 bit Linux Headless Godot executable.
+    godot_executable_download_url: 
+    # The url of the export templates corresponding to the Godot executable version.
+    godot_export_templates_download_url: 
+    # The relative path containing the "project.godot" file.
+    relative_project_path: 
+    # If exports should be archived.
+    archive_export_output: # optional
+    # If exports that result in single files should be archived.
+    archive_single_release_output: # optional, default is true
+    # The version which new releases start at.
+    base_version: # optional, default is 0.0.1
+    # If releases should be automatically created.
+    create_release: # optional, default is true
+    # If release notes should be automatically generated based on commit history.
+    generate_release_notes: # optional
+    # If set to true, exports will be moved to directory defined in "export_presets.cfg" relative to the root of the Git repository. Prioritized over "relative_export_path".
+    use_preset_export_path: # optional
+    # If provided, exports will be moved to this directory relative to the root of the Git repository.
+    relative_export_path: # optional, default is 
+    # The absolute path to the wine binary. If specified, Godot will use this to run rcedit to update Windows exe icons.
+    wine_path: # optional, default is 
+    # If should export with debugging tools.
+    export_debug: # optional

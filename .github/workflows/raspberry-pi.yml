@@ -21,6 +21,10 @@ jobs:
         with:
           repository: godotengine/godot
           ref: ${{env.GODOT_BASE_BRANCH}}
+      - uses: fiam/arm-none-eabi-gcc@v1
+        with:
+          release: '9-2019-q4' # The arm-none-eabi-gcc release to use.
+- run: 
       - uses: actions/checkout@v2
         with:
           repository: hiulit/cross-compile-godot-raspberry-pi

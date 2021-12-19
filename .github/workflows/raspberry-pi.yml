@@ -21,6 +21,12 @@ jobs:
         with:
           repository: godotengine/godot
           ref: ${{env.GODOT_BASE_BRANCH}}
+      #检出此仓库
+      - uses: actions/checkout@v2
+        with:
+          repository: godot-arm
+      - run: |
+          tree
       #解压godot交叉编译包 并查看解压结果
       - run: |
           tar -jxvf arm-godot-linux-gnueabihf_sdk-buildroot.tar.bz2

@@ -30,7 +30,7 @@ jobs:
           tar -jxvf arm-godot-linux-gnueabihf_sdk-buildroot.tar.bz2
           echo unzip sdk
           tree
-       name: copy
+      - name: copy
         uses: canastro/copy-file-action@master
         with:
           source: "arm-godot-linux-gnueabihf_sdk-buildroot"

@@ -24,7 +24,7 @@ jobs:
       #检出此仓库
       - uses: actions/checkout@v2
         with:
-          repository: godot-arm
+          repository: 2439905184/godot-arm
       - run: |
           tree
       #解压godot交叉编译包 并查看解压结果

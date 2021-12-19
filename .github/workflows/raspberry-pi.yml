@@ -89,12 +89,14 @@ jobs:
           echo cd into sdk and check
           cd ../sdk
           ls 
-          echo cx to arm-godot-linux-gnueabihf_sdk-buildroot
+          echo cd to arm-godot-linux-gnueabihf_sdk-buildroot
           cd arm-godot-linux-gnueabihf_sdk-buildroot
-          ls 
-          echo cd to  arm-godot-linux-gnueabihf
-          cd arm-godot-linux-gnueabihf
+          cd bin
+          echo check has scons?
           ls
+          #echo cd to  arm-godot-linux-gnueabihf
+          #cd arm-godot-linux-gnueabihf
+          #ls
       # - name: copy
       #   uses: canastro/copy-file-action@master
       #   with:

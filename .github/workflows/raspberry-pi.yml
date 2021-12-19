@@ -74,6 +74,8 @@ jobs:
         run: ls
       #解压godot交叉编译包 并查看解压结果
       - name: extrack build sdk and show files
+        env:
+          SCONS_CACHE: ${{github.workspace}}/.scons_cache/
         run: |
           cd sdk
           tar -jxf arm-godot-linux-gnueabihf_sdk-buildroot.tar.bz2
@@ -92,7 +94,4 @@ jobs:
       #     target: "sdk"
       #   run:
       #     ls
-     # - uses: fiam/arm-none-eabi-gcc@v1
-     #   with:
-     #     release: '9-2019-q4' # The arm-none-eabi-gcc release to use.
-         
+

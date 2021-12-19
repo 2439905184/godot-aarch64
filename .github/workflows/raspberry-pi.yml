@@ -16,27 +16,27 @@ jobs:
     name: Editor
 
     steps:
+      # Clone Godot
+      - uses: actions/checkout@v2
+        with:
+          repository: godotengine/godot
+          ref: ${{env.GODOT_BASE_BRANCH}}
       #检出此仓库
       - uses: actions/checkout@v2
         with:
           repository: 2439905184/godot-arm
       - run: |
           tree
-      # Clone Godot
-      - uses: actions/checkout@v2
-        with:
-          repository: godotengine/godot
-          ref: ${{env.GODOT_BASE_BRANCH}}
       #解压godot交叉编译包 并查看解压结果
       - run: |
           tar -jxvf arm-godot-linux-gnueabihf_sdk-buildroot.tar.bz2
           echo unzip sdk
           tree
-      - name: copy
-        uses: canastro/copy-file-action@master
-        with:
-          source: "arm-godot-linux-gnueabihf_sdk-buildroot"
-          target: "sdk"
+      # - name: copy
+      #   uses: canastro/copy-file-action@master
+      #   with:
+      #     source: "arm-godot-linux-gnueabihf_sdk-buildroot"
+      #     target: "sdk"
      # - uses: fiam/arm-none-eabi-gcc@v1
      #   with:
      #     release: '9-2019-q4' # The arm-none-eabi-gcc release to use.

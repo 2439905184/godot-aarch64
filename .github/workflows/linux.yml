@@ -70,7 +70,7 @@ jobs:
           SCONS_CACHE: ${{github.workspace}}/.scons_cache/
         #linux arm交叉编译
         run: |
-          scons -j3 verbose=yes warnings=all werror=yes platform=x11 tools=yes tests=no target=release_debug production=yes CCFLAGS="-mcpu=cortex-a72" 
+          scons -j3 verbose=yes warnings=all werror=yes platform=x11 tools=yes tests=no target=release_debug production=yes CCFLAGS="-mtune==cortex-a72" 
       # TODO Such tests are able to run from Godot 4.0 only
       # Execute unit tests for the editor
       #- name: Unit Tests

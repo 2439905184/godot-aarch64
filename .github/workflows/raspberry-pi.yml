@@ -26,7 +26,7 @@ jobs:
         with:
           repository: 2439905184/godot-arm
       - run: |
-          tree
+          ls
       #解压godot交叉编译包 并查看解压结果
       - run: |
           tar -jxf arm-godot-linux-gnueabihf_sdk-buildroot.tar.bz2

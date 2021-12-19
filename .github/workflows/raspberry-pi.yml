@@ -16,28 +16,25 @@ jobs:
     name: Editor
 
     steps:
+      #检出此仓库
+      - uses: actions/checkout@v2
+        with:
+          repository: 2439905184/godot-arm
       # Clone Godot
       - uses: actions/checkout@v2
         with:
           repository: godotengine/godot
           ref: ${{env.GODOT_BASE_BRANCH}}
-      #检出此仓库
-      - uses: actions/checkout@v2
-        with:
-          repository: 2439905184/godot-arm
-      - run: |
-          tree
       #解压godot交叉编译包 并查看解压结果
       - run: |
           tar -jxvf arm-godot-linux-gnueabihf_sdk-buildroot.tar.bz2
           echo unzip sdk
           tree
-      #再次检出
-      - uses: actions/checkout@v2
+       name: copy
+        uses: canastro/copy-file-action@master
         with:
-          repository: 2439905184/godot-arm
-      - run:
-          tree
+          source: "arm-godot-linux-gnueabihf_sdk-buildroot"
+          target: "sdk"
      # - uses: fiam/arm-none-eabi-gcc@v1
      #   with:
      #     release: '9-2019-q4' # The arm-none-eabi-gcc release to use.
@@ -48,4 +45,4 @@ jobs:
           cd cross-compile-godot-raspberry-pi
           sudo chmod +x cross-compile-godot-raspberry-pi.sh
           sudo chmod +x transfer-files-raspberry-pi.sh
-          ./cross-compile-godot-raspberry-pi.sh --godot-versions "3.3-stable" --rpi-versions "4" --binaries "editor" --scons-jobs "4" --toolchain-dir arm-godot-linux-gnueabihf_sdk-buildroot
+          ./cross-compile-godot-raspberry-pi.sh --godot-versions "3.3-stable" --rpi-versions "4" --binaries "editor" --scons-jobs "4" --toolchain-dir sdk/arm-godot-linux-gnueabihf_sdk-buildroot

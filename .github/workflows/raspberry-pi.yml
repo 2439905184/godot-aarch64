@@ -16,6 +16,19 @@ jobs:
     name: Editor
 
     steps:
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v2
+        with:
+          # Semantic version range syntax or exact version of a Python version
+          python-version: '3.x'
+          # Optional - x64 or x86 architecture, defaults to x64
+          architecture: 'x64'
+      - name: install scons
+        run: |
+          python -c "import sys; print(sys.version)"
+          python -m pip install scons
+          python --version
+          scons --version
       # Clone Godot
       - name: clone godot
         uses: actions/checkout@v2

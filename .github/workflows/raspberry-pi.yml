@@ -43,6 +43,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           repository: hiulit/cross-compile-godot-raspberry-pi
+          path: cross-compile-godot-raspberry-pi
       - run:
           ls 
       - run: |

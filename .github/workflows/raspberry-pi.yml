@@ -34,13 +34,13 @@ jobs:
           tar -jxf arm-godot-linux-gnueabihf_sdk-buildroot.tar.bz2
           echo unzip sdk
           ls
-      - name: copy
-        uses: canastro/copy-file-action@master
-        with:
-          source: "arm-godot-linux-gnueabihf_sdk-buildroot"
-          target: "sdk"
-      - run:
-          ls
+      # - name: copy
+      #   uses: canastro/copy-file-action@master
+      #   with:
+      #     source: "arm-godot-linux-gnueabihf_sdk-buildroot"
+      #     target: "sdk"
+      #   run:
+      #     ls
      # - uses: fiam/arm-none-eabi-gcc@v1
      #   with:
      #     release: '9-2019-q4' # The arm-none-eabi-gcc release to use.

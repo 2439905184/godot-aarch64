@@ -30,10 +30,10 @@ jobs:
       - run:
           ls
       #检出此仓库
-      - name: checkout repo
-        uses: actions/checkout@v2
-        with:
-          repository: 2439905184/godot-arm
+     # - name: checkout repo
+     #   uses: actions/checkout@v2
+     #   with:
+     #     repository: 2439905184/godot-arm
       - name: show_repo
         run:
           ls

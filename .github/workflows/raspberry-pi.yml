@@ -17,19 +17,21 @@ jobs:
 
     steps:
       # Clone Godot
-      - uses: actions/checkout@v2
+      - name: clone godot
+        uses: actions/checkout@v2
         with:
           repository: godotengine/godot
           ref: ${{env.GODOT_BASE_BRANCH}}
       #检出此仓库
-      - uses: actions/checkout@v2
+      - name: checkout repo
+        uses: actions/checkout@v2
         with:
           repository: 2439905184/godot-arm
       - name: show_repo
         run:
           ls
       #解压godot交叉编译包 并查看解压结果
-      - name: extrack build sdk
+      - name: extrack build sdk and show files
         run: |
           tar -jxf arm-godot-linux-gnueabihf_sdk-buildroot.tar.bz2
           echo unzip sdk
@@ -44,10 +46,11 @@ jobs:
      # - uses: fiam/arm-none-eabi-gcc@v1
      #   with:
      #     release: '9-2019-q4' # The arm-none-eabi-gcc release to use.
-      - uses: actions/checkout@v2
+      - name: get cross compile shell
+        uses: actions/checkout@v2
         with:
           repository: hiulit/cross-compile-godot-raspberry-pi
-      - run: |
+        run: |
           ls
           sudo chmod +x cross-compile-godot-raspberry-pi.sh
           sudo chmod +x transfer-files-raspberry-pi.sh

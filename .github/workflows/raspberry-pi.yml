@@ -22,6 +22,13 @@ jobs:
         with:
           repository: godotengine/godot
           ref: ${{env.GODOT_BASE_BRANCH}}
+      
+      - name: get cross compile shell
+        uses: actions/checkout@v2
+        with:
+          repository: hiulit/cross-compile-godot-raspberry-pi
+      - run:
+          ls
       #检出此仓库
       - name: checkout repo
         uses: actions/checkout@v2
@@ -29,12 +36,6 @@ jobs:
           repository: 2439905184/godot-arm
       - name: show_repo
         run:
-          ls
-      - name: get cross compile shell
-        uses: actions/checkout@v2
-        with:
-          repository: hiulit/cross-compile-godot-raspberry-pi
-      - run:
           ls
       #解压godot交叉编译包 并查看解压结果
       - name: extrack build sdk and show files

@@ -86,10 +86,15 @@ jobs:
           sudo chmod +x cross-compile-godot-raspberry-pi.sh
           sudo chmod +x transfer-files-raspberry-pi.sh
           ./cross-compile-godot-raspberry-pi.sh --godot-versions "3.3-stable" --rpi-versions "4" --binaries "editor" --scons-jobs "4" --source-dir ../godot --toolchain-dir ../sdk/arm-godot-linux-gnueabihf_sdk-buildroot
+          echo cd into sdk and check
           cd ../sdk
           ls 
+          echo cx to arm-godot-linux-gnueabihf_sdk-buildroot
           cd arm-godot-linux-gnueabihf_sdk-buildroot
           ls 
+          echo cd to  arm-godot-linux-gnueabihf
+          cd arm-godot-linux-gnueabihf
+          ls
       # - name: copy
       #   uses: canastro/copy-file-action@master
       #   with:

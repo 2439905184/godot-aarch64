@@ -33,7 +33,7 @@ jobs:
           echo unzip sdk
           ls
       - name: copy
-      - uses: canastro/copy-file-action@master
+        uses: canastro/copy-file-action@master
         with:
           source: "arm-godot-linux-gnueabihf_sdk-buildroot"
           target: "sdk"

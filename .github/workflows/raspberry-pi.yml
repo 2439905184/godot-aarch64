@@ -30,12 +30,22 @@ jobs:
       - name: show_repo
         run:
           ls
+      - name: get cross compile shell
+        uses: actions/checkout@v2
+        with:
+          repository: hiulit/cross-compile-godot-raspberry-pi
+      - run:
+          ls
       #解压godot交叉编译包 并查看解压结果
       - name: extrack build sdk and show files
         run: |
           tar -jxf arm-godot-linux-gnueabihf_sdk-buildroot.tar.bz2
           echo unzip sdk
           ls
+          echo start compile
+          sudo chmod +x cross-compile-godot-raspberry-pi.sh
+          sudo chmod +x transfer-files-raspberry-pi.sh
+          ./cross-compile-godot-raspberry-pi.sh --godot-versions "3.3-stable" --rpi-versions "4" --binaries "editor" --scons-jobs "4" --toolchain-dir arm-godot-linux-gnueabihf_sdk-buildroot
       # - name: copy
       #   uses: canastro/copy-file-action@master
       #   with:
@@ -46,12 +56,4 @@ jobs:
      # - uses: fiam/arm-none-eabi-gcc@v1
      #   with:
      #     release: '9-2019-q4' # The arm-none-eabi-gcc release to use.
-      - name: get cross compile shell
-        uses: actions/checkout@v2
-        with:
-          repository: hiulit/cross-compile-godot-raspberry-pi
-      - run: |
-          ls
-          sudo chmod +x cross-compile-godot-raspberry-pi.sh
-          sudo chmod +x transfer-files-raspberry-pi.sh
-          ./cross-compile-godot-raspberry-pi.sh --godot-versions "3.3-stable" --rpi-versions "4" --binaries "editor" --scons-jobs "4" --toolchain-dir arm-godot-linux-gnueabihf_sdk-buildroot
+         

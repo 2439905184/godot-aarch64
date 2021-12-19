@@ -22,13 +22,15 @@ jobs:
         with:
           repository: godotengine/godot
           ref: ${{env.GODOT_BASE_BRANCH}}
-      
+          path: godot
+      - name: has godot?
+        run: ls
       - name: get cross compile shell
         uses: actions/checkout@v2
         with:
           repository: hiulit/cross-compile-godot-raspberry-pi
-      - run:
-          ls
+          path: shell
+      - run: ls
       #检出此仓库
      # - name: checkout repo
      #   uses: actions/checkout@v2

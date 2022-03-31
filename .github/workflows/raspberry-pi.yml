@@ -1,4 +1,4 @@
-name: 🐧 Linux Builds
+name: 🐧 Linux Builds(raspberry-pi)
 on:
   push:
     branches: [ master]
